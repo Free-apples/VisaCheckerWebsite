@@ -28,6 +28,7 @@ app = Flask(__name__)
 def root():
     # For the sake of example, use static information to inflate the template.
     # This will be replaced with real information in later steps.
+    print("At the home page")
     return render_template('index.html')
 
 
@@ -59,6 +60,12 @@ def unsubscribeSucces():
     print(future.result())
 
     return render_template('unsubscribesuccess.html', email=email)
+
+
+@app.route('/newUser')
+def getNewUser():
+    print("In new user")
+    return render_template('newUser.html')
 
 
 @app.route('/', methods=['POST'])
